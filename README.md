@@ -5,6 +5,13 @@ app/   app.py, requirements.txt, Dockerfile
 k8s/   mysql.yaml (PVC + MySQL + Service), flask.yaml (Flask + NodePort Service)
 ```
 
+## 0. Clone the repo
+
+```bash
+git clone https://github.com/newdelthis/kubernetes-dynamic.git
+cd kubernetes-dynamic
+```
+
 ## 1. Start minikube
 
 ```bash
@@ -65,16 +72,6 @@ kubectl get pods -w               # wait for it to be Running again
 ```
 
 Click **Complete** again. The records are still there because they live on `mysql-pvc`.
-
-## Updating the app
-
-Change the code, then build and push a new tag and roll it out:
-
-```bash
-docker build -t $DH_USER/flask-k8s-demo:1.1 app
-docker push $DH_USER/flask-k8s-demo:1.1
-kubectl set image deployment/flask-app flask-app=$DH_USER/flask-k8s-demo:1.1
-```
 
 ## Troubleshooting
 
