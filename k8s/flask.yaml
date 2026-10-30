@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: flask-app
-          image: YOUR_DOCKERHUB_USERNAME/flask-k8s-demo:1.0   # <-- change this
+          image: sv1212/flask-k8s-demo:1.0   # <-- change this
           imagePullPolicy: Always                            # always pull from Docker Hub
           env:
             - name: DB_HOST
